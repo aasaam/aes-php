@@ -1,0 +1,44 @@
+{
+  "name": "aasaam/aes",
+  "version": "0.0.7",
+  "description": "Simplified cross language Advanced Encryption Standard (AES)",
+  "keywords": [
+    "aasaam",
+    "aes-256-gcm",
+    "aes",
+    "cross-language",
+    "decryption",
+    "encryption",
+    "ttl"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Muhammad Hussein Fattahizadeh",
+      "email": "m@mhf.ir"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AasaamAES\\": "src/AasaamAES"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AasaamAESTest\\": "tests/AasaamAESTest"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-openssl": "*"
+  },
+  "require-dev": {
+    "ext-xdebug": "*",
+    "friendsofphp/php-cs-fixer": "^3",
+    "laminas/laminas-coding-standard": "^2",
+    "phpunit/phpunit": "^9",
+    "squizlabs/php_codesniffer": "^3",
+    "vimeo/psalm": "^4",
+    "wp-coding-standards/wpcs": "^2"
+  }
+}

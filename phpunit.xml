@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd" bootstrap="vendor/autoload.php" cacheResultFile=".phpunit.cache/test-results" executionOrder="depends,defects" beStrictAboutCoversAnnotation="true" beStrictAboutOutputDuringTests="true" beStrictAboutTodoAnnotatedTests="true" failOnRisky="true" failOnWarning="true" verbose="true">
+  <php>
+    <env name="XDEBUG_MODE" value="coverage"/>
+    <ini name="xdebug.mode" value="coverage" />
+  </php>
+  <testsuites>
+    <testsuite name="default">
+      <directory suffix="Test.php">tests</directory>
+    </testsuite>
+  </testsuites>
+  <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <report>
+      <clover outputFile=".phpunit.cache/clover.xml"/>
+      <html outputDirectory=".phpunit.cache/html" />
+      <php outputFile=".phpunit.cache/coverage.php"/>
+      <text outputFile=".phpunit.cache/coverage.txt" showUncoveredFiles="false" showOnlySummary="true" />
+      <xml outputDirectory=".phpunit.cache/xml-coverage"/>
+    </report>
+  </coverage>
+</phpunit>

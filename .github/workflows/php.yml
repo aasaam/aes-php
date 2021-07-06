@@ -1,0 +1,28 @@
+name: php
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['7.4', '8.0']
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extensions: xdebug, openssl
+        coverage: xdebug
+        tools: composer
+    - run: composer install
+    - run: ./vendor/bin/phpcs -v
+    - run: ./vendor/bin/psalm
+    - run: XDEBUG_MODE=coverage ./vendor/bin/phpunit

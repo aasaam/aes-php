@@ -29,7 +29,7 @@ Features:
 
 Currently supported following languages:
 
-- [Node](https://github.com/aasaam/aes-node)
+- [Node.js](https://github.com/aasaam/aes-nodejs)
 - [PHP](https://github.com/aasaam/aes-php)
 - [Go](https://github.com/aasaam/aes-go)
 

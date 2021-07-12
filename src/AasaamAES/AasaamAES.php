@@ -8,6 +8,9 @@ use Throwable;
 
 use function base64_decode;
 use function base64_encode;
+use function hash;
+use function hex2bin;
+use function implode;
 use function json_decode;
 use function json_encode;
 use function openssl_decrypt;
@@ -47,6 +50,17 @@ class AasaamAES
     public static function generateKey(): string
     {
         return base64_encode(openssl_random_pseudo_bytes(32));
+    }
+
+    /**
+     * Generate encryption key for special props
+     *
+     * @param string[] $props Array of properties, orders matters
+     * @return string Base64 encoded hash key
+     */
+    public static function generateHashKey(string $key, array $props): string
+    {
+        return base64_encode(hex2bin(hash('sha256', $key . ':' . implode(':', $props))));
     }
 
     /**

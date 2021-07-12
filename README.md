@@ -12,6 +12,9 @@
     <a href="https://github.com/aasaam/aes-php/actions/workflows/php.yml" target="_blank">
       <img src="https://github.com/aasaam/aes-php/actions/workflows/php.yml/badge.svg" alt="PHP" />
     </a>
+    <a href="https://coveralls.io/github/aasaam/aes-php">
+      <img alt="Coveralls" src="https://img.shields.io/coveralls/github/aasaam/aes-php">
+    </a>
     <a href="https://packagist.org/packages/aasaam/aes" target="_blank">
       <img alt="Packagist Version" src="https://img.shields.io/packagist/v/aasaam/aes">
     </a>

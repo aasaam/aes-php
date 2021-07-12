@@ -61,4 +61,30 @@ final class AasaamAESTest extends TestCase
         $result = $aes->decryptTTL($encrypted);
         $this->assertTrue($result === '');
     }
+
+    public function testHashKey(): void
+    {
+        $test = json_decode(file_get_contents("./test.json"), true);
+
+        $mustSecureMessage = $test['message'];
+
+        $clientDataSender = [
+            '1.1.1.1',
+            'user-agent',
+        ];
+
+        $clientDataSenderKey = AasaamAES::generateHashKey($test['key'], $clientDataSender);
+
+        $aes = new AasaamAES($clientDataSenderKey);
+
+        $networkData = $aes->encrypt($mustSecureMessage);
+
+        $sameData = $aes->decrypt($networkData);
+
+        $sameData2 = $aes->decrypt($test['networkData']);
+
+        $this->assertEquals($sameData, $mustSecureMessage);
+
+        $this->assertEquals($sameData2, $mustSecureMessage);
+    }
 }
